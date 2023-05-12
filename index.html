@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script type='text/javascript'>
+     google.charts.load('current', {
+       'packages': ['geochart'],
+       // Note: Because markers require geocoding, you'll need a mapsApiKey.
+       // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+       'mapsApiKey': 'AIzaSyBg_vqLuxm7G7CWZtoyaz-etbI0tG6phtY'
+     });
+     google.charts.setOnLoadCallback(drawMarkersMap);
+
+      function drawMarkersMap() {
+      var data = google.visualization.arrayToDataTable([
+        ['City',   'Hours'],
+        ['Shire of Northampton', 65.36 ],
+        ['Shire of Perenjori', 72.04 ],
+        ['Shire Of Chapman Valley', 56.26 ],
+        ['Shire of Coorow', 57.48 ],
+        ['Shire of Irwin', 63.38],
+        ['Shire of Ravensthorpe', 53.18 ],
+        ['Shire of Lake Grace', 44.43 ],
+        ['Shire of Wickepin', 41.3 ],
+        ['Shire of Dumbleyung', 39.11 ],
+        ['Shire of Gnowangerup', 9.06 ],
+        ['City of Mandurah', 4.24 ],
+        ['City of Wanneroo', 4.15],
+        ['City of Armadale', 7.17],
+        ['City of Greater Geraldton', 12.18],
+        ['Shire of Murray', 7.28],
+        ['Shire of Gingin', 27.43],
+        ['City of Swan', 3.41 ]
+
+      ]);
+
+      var options = {
+        region: 'AU',
+        displayMode: 'markers',
+        colorAxis: {colors: ['green', 'blue']}
+      };
+
+      var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    };
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
